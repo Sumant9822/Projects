@@ -98,9 +98,9 @@ table.table td .add {
 }
 </style>
 <link rel="stylesheet" href="index.css">
-<script src="script.js"> </script>
 </head>
 <body>
+    
     <div class="area" >
         <ul class="circles">
                 <li></li>
@@ -113,6 +113,23 @@ table.table td .add {
                 <li></li>
                 <li></li>
                 <li></li>
+
+
+            
+                    <table border="1" class="table table-bordered"> 
+                       
+                     <form action="">
+                        
+                    <tr> 
+                        <td><input type="text"  class="form-control" name="gname" id="gname" placeholder="Game Name"></td> 
+                        <td><input type="text"  class="form-control" name="series" id="gseries" placeholder="Game Series"></td>
+                        <td><input type="text"  class="form-control" name="space" id="gspace" placeholder="Space Required"></td>
+                        <td><input type="text" class="form-control" name="developer" id="gdeveloper" placeholder="Developer"></td>
+                        <td><input type="text" class="form-control" name="publisher" id="gpublisher" placeholder="Publisher"></td>
+                        <td><input type="text" class="form-control" name="genres" id="ggenres" placeholder="Genres"></td>
+                        <td> <button id="adds" class="button1" >ADD</button>  </td>
+                    </tr></form> </table>
+         
      
 <div class="container-lg">
     <div class="table-responsive">
@@ -120,69 +137,43 @@ table.table td .add {
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>TOP GAMES IN <b>2021</b></h2></div>
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                    </div>
+                   
                 </div>
             </div>
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
                         <th>Series</th>
-                        <th>Release Date</th>
+                        <th>Space</th>
                         <th>Developer</th>
                         <th>Publisher</th>
                         <th>Genres</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="gamedetails">
                     <tr>
-                        <td>Hitman 3</td>
-                        <td>Hitman</td>
-                        <td>20-01-2021</td>
-                        <td>IO Interactive</td>
-                        <td>IO Interactive</td>
-                        <td>Shooter Video Game</td>
+                        <td class="gid">${gid + 1}</td>
+                        <td class ="gname">$g.gname</td>
+                        <td class="gseries">$g.gseries</td>
+                        <td class="gspace">$g.gspace</td>
+                        <td class="gdeveloper">$g.gdeveloper</td>
+                        <td class="gpublisher">$g.gpublsher</td>
+                        <td class="ggenres">$g.ggenres</td>
                         <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                            <a class="delete" title="Delete"><i class="material-icons">&#xE254;</i></a>
+                            <a  class="edit" title="Edit"  ><i class="material-icons"> &#xE872;</i></a>                        
                         </td>
-                    </tr>
-                    <tr>
-                        <td>Halo Infinite</td>
-                        <td>Halo</td>
-                        <td>15-11-2021</td>
-                        <td>343 Industries</td>
-                        <td>Xbox Games Studios</td>
-                        <td>First-person shooter</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Far Cry 6</td>
-                        <td>Far Cry</td>
-                        <td>06-09-2021</td>
-                        <td>Ubisoft Milan</td>
-                        <td>Ubisoft Milan</td>
-                        <td>First-person shooter</td>
-                        <td>
-                            <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                        </td>
-                    </tr>      
+                    </tr>   
                 </tbody>
             </table>
         </div>
     </div>
 </div>  
 </ul>
-</div >   
-</body>
+</div >
+<script  src="script.js"> </script>  
+</body> 
 </html>
