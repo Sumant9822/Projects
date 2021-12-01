@@ -1,0 +1,7 @@
+$ dir = shows folder 
+
+$ git status = shows whether the project is uploaded on git or not 
+
+$ git add . = add the project on git
+
+npm run deploy = creates build folder to deploy

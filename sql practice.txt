@@ -1,0 +1,78 @@
+	
+	create table directors(
+	director_id SERIAL PRIMARY key,
+		first_name varchar(30),
+		last_name varchar(30),
+		date_of_birth DATE,
+		nationality varchar(20)
+	);
+	
+	select * FROM directors;
+	
+
+
+
+	create table actors(
+	actor_id serial primary key,
+	first_name varchar(30),
+	last_name varchar(30),
+	gender char(1),
+	date_of_birth date	
+	);
+	
+	select * from actors;
+
+
+
+
+	create table movies(
+	movie_id serial primary key,
+	movie_name varchar(50) not null,
+	movie_length int,	
+	movie_lang varchar(20),
+	release_date date,
+	age_certificate varchar(5),
+	director_id int references directors (director_id)	
+	);
+	
+	select * from movies;
+
+
+
+	create table movie_revenues(
+	revenue_id serial primary key,
+	movie_id int references movies (movie_id),
+	domestic_tankings numeric(6,2),
+		international_takings numeric(6,2)
+	);
+	
+	select * from movie_revenues;
+	
+	
+	
+	create table movie_actors(
+	movie_id int references movies(movie_id),
+	actor_id int references actors(actor_id),
+	primary key (movie_id,actor_id)	
+	);
+	
+	select * from movie_actors;
+
+
+
+
+       //modify table
+
+	create table examples(
+	    example_id serial primary key,
+		first_name varchar(30),
+		last_name varchar(30)
+	);
+	
+	select * from examples; 
+	
+	--add coloumn
+	alter table examples add column email varchar(50 ) unique;
+	
+	alter table examples add column nationality varchar(30), add column age int not null;
+	alter table examples alter column first_name type varchar(50);
