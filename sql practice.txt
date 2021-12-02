@@ -60,6 +60,9 @@
 
 
 
+	
+
+
 
        //modify table
 
@@ -76,3 +79,78 @@
 	
 	alter table examples add column nationality varchar(30), add column age int not null;
 	alter table examples alter column first_name type varchar(50);
+
+
+
+
+
+	--insert data
+	insert into examples (first_name, last_name, email, nationality, age)
+	values ('David','Mitchell','dmitch@gmail.com','GBR',23);
+	
+	insert into examples (first_name, last_name, email, nationality, age)
+	values ('Emily','Watson','emiitch@gmail.com','Scott',35),
+	('Sumant','Mulgaonkar','summul@gmail.com','Indian',21);
+	
+	
+	Select *  from examples;
+
+
+
+ 	--update data
+	
+	update examples 
+	set email='david@gmail.com', age=44
+	where example_id = 1;
+	Select *  from examples;
+
+
+
+	--detele data
+	delete from examples
+	where example_id = 1;
+	
+	Select *  from examples;
+
+
+
+
+
+
+
+
+select * from movie_revenues
+
+
+	
+select first_name, last_name from directors;
+
+select * from movies where age_certificate = '15' AND movie_lang = 'Chinese';
+
+select * from movies where movie_lang ='English' AND age_certificate ='15' AND director_id=27;
+
+select  movie_name , movie_length from movies where movie_length >= 120;
+
+select * from movies where release_date < '1999-12-31';
+
+select first_name , last_name from actors where first_name Not IN ('Bruce', 'John', 'Peter');
+
+select * from  actors where first_name like '%r';
+
+select movie_name, movie_lang from movies where movie_lang between 'E' and 'P';
+
+select actor_id , first_name , date_of_birth from actors order by date_of_birth ;
+
+select * from movie_revenues order by revenue_id limit 8 offset 2;
+
+select movie_id , movie_name from movies offset 8 rows fetch first 5 row only;
+
+select distinct movie_lang from movies order by movie_lang;
+
+select * from movie_revenues where domestic_tankings is Not null 
+order by domestic_tankings desc;
+
+
+Select last_name as surname from directors;
+
+Select CONCAT(first_name, ' ', last_name) AS full_name from actors;
