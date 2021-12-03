@@ -154,3 +154,37 @@ order by domestic_tankings desc;
 Select last_name as surname from directors;
 
 Select CONCAT(first_name, ' ', last_name) AS full_name from actors;
+
+
+
+//aggregate functions 
+
+	select count (*) from movies where movie_lang ='English';
+	select count(international_takings) from  movie_revenues;
+	
+	select sum(domestic_tankings) from movie_revenues where domestic_tankings > 100.0;
+	select sum(movie_length) from movies where movie_lang = 'Chinese';
+	
+	select max(movie_length) from movies;
+	select min(movie_length) from movies;
+	select min(movie_length) from  movies where movie_lang = 'Japanese';
+	
+	
+	select avg(movie_length) from movies where age_certificate = '18';
+	
+	Select movie_lang , AVG(movie_length) from movies group by movie_lang;
+	
+	select movie_lang, age_certificate, avg(movie_length) from movies group by movie_lang, age_certificate;
+	
+	select movie_lang , count(movie_lang) from movies group by movie_lang having count(movie_lang) > 1;
+	select movie_lang , count(movie_lang) from movies
+	where movie_length > 120
+	group by movie_lang having count(movie_lang) > 1;
+	
+	select 5 + 6 as addition;
+	select 35/3 as division;
+	
+	select movie_id , (domestic_tankings * international_takings) as total_takings from movie_revenues;
+	
+	select * from movie_revenues;
+	
