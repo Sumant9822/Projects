@@ -1,0 +1,87 @@
+Indexing is the way to get an unordered table into order that will maximize the query's efficiency while searching.
+Indexing works like the index of the book. Used to retrieve data from database very fast. It is small ,fast and optimized for quick lookups.
+Indexing reduces the number of blocks calling. Hence IO cost is also reduced. 
+Creating index creates another data structure which holds the field value and pointer to record it relates to.
+
+There are 2 types of indexing 
+1) Clustered Index - Defines in order in which data is physically stored in a table. 
+2) Non-Clustered Index - It does not sort the physical data inside the table. Like the index is stored in one place and table data is 
+stored in another place.
+
+
+
+To optimize the data
+
+Denormalization - Is strategy used on a previously-normalized database to increase performance. Eg. we can use extra attributes 
+in existing tables, or extra instances of existing tables.
+
+Reduce Joins- Database has to do more work if there are more joins, which means it is time consuming process to retrieve data.
+
+Indexing - Indexing is the way to get an unordered table into order that will maximize the query's efficiency while searching.
+
+
+SQL JOINS 
+	--inner join
+	Select directors.director_id ,directors.first_name, directors.last_name, movies.movie_name, movies.movie_lang
+	from directors
+	inner join movies on directors.director_id = movies.director_id
+	where movies.movie_lang='Japanese';
+	
+	select mo.movie_name , mr.domestic_tankings from movies mo 
+	join movie_revenues mr on mo.movie_id = mr.movie_id;
+	
+	select mo.movie_name , mr.domestic_tankings from movies mo 
+	join movie_revenues mr using (movie_id);
+	
+	--left join 
+	Select directors.director_id ,directors.first_name, directors.last_name, movies.movie_name
+	from directors
+	left join movies on directors.director_id = movies.director_id;
+	
+	--right join
+	select d.director_id, d.first_name, d.last_name , mo.movie_name from movies mo
+	right join directors d on d.director_id = mo.director_id
+	where mo.age_certificate = '18';
+	
+	--full join
+	select d.director_id, d.first_name, d.last_name , mo.movie_name from movies mo
+	full join directors d on d.director_id = mo.director_id
+	where mo.movie_lang in ('German', 'Korean')
+	order by d.last_name;
+	
+	--3 table join 
+	select d.first_name, d.last_name, mo.movie_name, mr.international_takings
+	from directors d
+	join movies mo ON d.director_id = d.director_id
+	join movie_revenues mr ON mr.movie_id = mo.movie_id;
+	
+	--UNION
+	select first_name, last_name from directors
+	where nationality = 'American'
+	UNION
+	select first_name, last_name from actors
+	where gender = 'F';
+	
+	--UNION ALL
+	select first_name from directors
+	UNION
+	select first_name from actors
+	order by first_name;
+	
+	--INTERSECT
+	select first_name from directors
+	where nationality = 'American'
+	INTERSECT
+	select first_name from actors
+	order by first_name ;
+	
+	
+	--EXCEPT
+	select first_name from directors
+	where nationality = 'American'
+	EXCEPT
+	select first_name from actors
+	order by first_name ;
+
+
+
