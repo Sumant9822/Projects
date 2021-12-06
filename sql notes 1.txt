@@ -117,8 +117,6 @@
 
 
 
-
-
 select * from movie_revenues
 
 
