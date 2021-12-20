@@ -30,27 +30,25 @@ abstract class Model{
 		}
 		$this->stmt->bindValue($param, $value, $type);
 	}
+	public function execute()
+    {
+        $this->stmt->execute();
+    }
 
-	public function execute(){
-		$this->stmt->execute();
-	}
+    public function resultSet()
+    {
+        $this->execute();
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-	public function resultSet(){
-		$this->execute();
-		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
-	}
+    public function lastInsertId()
+    {
+        return $this->dbh->lastInsertId();
+    }
 
-	public function lastInsertId(){
-		return $this->dbh->lastInsertId();
-	}
-
-	public function LastDeletedId(){
-		$this->execute();
-		return $this->dbh->lastDeletedId();
-	}
-
-	public function single(){
-		$this->execute();
-		return $this->stmt->fetch(PDO::FETCH_ASSOC);
-	}
-}
+    public function single()
+    {
+        $this->execute();
+        return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
+}?>

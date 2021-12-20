@@ -20,17 +20,38 @@ echo "</div> </div>";
    <th>Developer</th>
    <th>Publisher</th>
    <th>Genres</th>
-   <th style='width: 200px';  align:'center' >  Actions</th>
-</tr></thead>";?>
-	<?php foreach($viewmodel as $row) : ?>
-	<?php	echo "<tr><td>" . $row["gname"] . "</td> <td>". $row["gseries"] . "</td>  <td>". $row["gspace"] . "</td> <td>". $row["gdeveloper"] . "</td>  
-        <td>". $row["gpublisher"] . "</td>
-        <td>". $row["ggenres"] . "</td> 
-        <td><button type='submit' name='delete' id='delete' class='button2' value=" . $row["gameID"] . ">delete</button> <br><br>
-<button name='update1' id='update1' class='button3' value=" . $row["gameID"] . ">Update </button></td></tr>";
-    $updateid = $row["gameID"];?>
+   <th>Created at</th>
+   <th style='width: 80px';  align:'center' >  Actions</th>
+</thead>";?>
+ <?php foreach($viewmodel as $item) : ?>
+                                <tr>
+                                    <td><?php echo $item['gname']; ?></td>
+                                    <td><?php echo $item['gseries'] ?></td>
+                                    <td><?php echo $item['gspace'] ?></td> 
+                                    <td><?php echo $item['gdeveloper'] ?></td>
+                                    <td><?php echo $item['gpublisher'] ?></td>
+                                    <td><?php echo $item['ggenres'] ?></td>
+                                    <?php $time = strtotime($item['created_at']);
+                                    $myFormatForView = date("d-M-Y g:i A", $time);?>  
+                                    <td><?php echo $myFormatForView; ?></td>
+                                    <td>
+                                        <form action="<?php echo ROOT_URL?>games/edit" method="post">
+                                            <input type="hidden" value="<?php echo $item['gameID'];?>" name="update_id"/>
+                                            <button type="submit" name="edit" value="Edit" class="btn btn-info">
+                                           UPDATE                 
+                                            </button>
+                                            </form>
+                                        <form action="<?php echo ROOT_URL?>games/delete" method="post">
+                                            <input type="hidden" value="<?php echo $item['gameID'];?>" name="delete_id"/>
+                                            <button type="submit" name="delete" value="Delete" class="btn btn-danger">
+                                               DELETE
+</button>
+                                        </form>
+                                    </td>
+                                </tr>
+
 	<?php endforeach; 
-	echo "</form>";
+	 echo "</form>";
     echo "</table>";
 	echo "</div>";
     echo "</div>";?>
