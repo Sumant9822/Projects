@@ -14,9 +14,9 @@ class m220105_095345_create_customer_table extends Migration
     {
         $this->createTable('customer', [
             'cust_id' => $this->primaryKey(),
-            'cust_name' => $this->string()->notNull(),
-            'lead_id' => $this->integer()->notNull(),
-            'plan_id' => $this->integer()->notNull(),
+            'cust_name' => $this->string(30)->notNull(),
+            'lead_id' => $this->integer(11)->notNull(),
+            'plan_id' => $this->integer(11)->notNull(),
 
         ]);
 

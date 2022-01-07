@@ -297,6 +297,7 @@ $(document).ready(function(){
 
             'lead_id',
             'lead_name',
+			'plan_id',
             'created_at',
 
             ['class' => 'yii\grid\ActionColumn',

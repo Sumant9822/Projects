@@ -14,9 +14,9 @@ class m220105_094729_create_leads_table extends Migration
     {
         $this->createTable('leads', [
             'lead_id' => $this->primaryKey(),
-            'lead_name' => $this->string()->notNull(),
+            'lead_name' => $this->string(30)->notNull(),
             'created_at' => $this->datetime()->null()->defaultExpression('CURRENT_TIMESTAMP'),
-            'plan_id' => $this->integer()->notNull(),
+            'plan_id' => $this->integer(11)->notNull(),
 
         ]);
 

@@ -14,10 +14,10 @@ class m220105_092609_create_task_table extends Migration
     {
         $this->createTable('task', [
             'task_id' => $this->primaryKey(),
-            'task_name' => $this->string()->notNull(),
-            'task_desc' => $this->string()->notNull(),
+            'task_name' => $this->string(30)->notNull(),
+            'task_desc' => $this->string(30)->notNull(),
             'start_date' => $this->datetime()->null()->defaultExpression('CURRENT_TIMESTAMP'),
-            'emp_id' => $this->integer()->notNull(),
+            'emp_id' => $this->integer(11)->notNull(),
 
         ]);
 

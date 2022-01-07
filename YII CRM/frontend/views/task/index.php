@@ -300,7 +300,7 @@ $(document).ready(function(){
   					'task_name',
   					'task_desc',
   					'start_date',
-  					//'emp_id',
+  				
 					[
 						'attribute'=>'emp_name',
 						'value'=>'adminEmployee.emp_name',

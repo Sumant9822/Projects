@@ -118,7 +118,7 @@ class Customer extends \yii\db\ActiveRecord
             'cust_id' => 'Customer ID',
             'cust_name' => 'Customer Username',
             'lead_id' => 'Lead ID',
-            'plan_id' => 'Plan ID',
+            'plan_id' => 'Plan Name',
         ];
     }
 

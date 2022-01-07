@@ -14,8 +14,8 @@ class m220105_100101_create_employee_table extends Migration
     {
         $this->createTable('employee', [
             'id' => $this->primaryKey(),
-            'emp_id' => $this->integer()->notNull(),
-            'cust_id' => $this->integer()->notNull(),
+            'emp_id' => $this->integer(11)->notNull(),
+            'cust_id' => $this->integer(11)->notNull(),
         ]);
 
         $this->addForeignKey(

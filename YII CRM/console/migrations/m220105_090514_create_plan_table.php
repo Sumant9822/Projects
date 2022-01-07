@@ -15,10 +15,10 @@ class m220105_090514_create_plan_table extends Migration
     {
         $this->createTable('plan', [
             'plan_id' => $this->primaryKey(),
-            'plan_name' => $this->string()->notNull(),
-            'validity' => $this->string()->notNull(),
-            'plan_data' => $this->string()->notNull(),
-            'price' => $this->text()->notNull(),
+            'plan_name' => $this->string(30)->notNull(),
+            'validity' => $this->string(30)->notNull(),
+            'plan_data' => $this->string(10)->notNull(),
+            'price' => $this->text(10)->notNull(),
         ]);
 
     }
