@@ -1,0 +1,8 @@
+<h1>Sucess Component</h1>
+<input type="text" class="form-control" (input)="OnUpdateSuccessName($event)"><br>
+<!-- <input type="text" class="form-control" [(ngModel)]="sname")]><br> -->
+<button class="btn btn-primary" [disabled]="!allowbutton"  (click)="OncreateSuccess()" >Add Name </button> &nbsp;
+<button class="btn btn-primary" [disabled]="sname==='' " (click)="sname = '' ">Reset Name </button>
+<p> {{sname}}</p>
+<p>{{buttonstatus}}  {{allowbutton}}</p>
+<p>Name who got succcess is {{sname}} from {{company}}</p>
