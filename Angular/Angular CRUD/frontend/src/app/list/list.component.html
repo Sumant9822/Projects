@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="text-align:center;">
+      <h3>Games in 2022</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <form #gameForm="ngForm" (ngSubmit)="addGame(gameForm.value)">
+      <br /><br />
+      <table border="1" class="table table-bordered">
+       <tr>
+        <td><input  #gameID type="text"  class="form-control" name="gameID" id="gameID"  placeholder="Game ID"></td>
+           <td><input type="text"  class="form-control" name="gname" ngModel id="gname"  placeholder="Game Name"></td>
+           <td><input type="text"  class="form-control" name="gseries" ngModel id="gseries" placeholder="Game Series"></td>
+           <td><input type="text"  class="form-control" name="gspace" ngModel id="gspace" placeholder="Space Required"></td>
+           <td><input type="text" class="form-control" name="gdeveloper" ngModel id="gdeveloper" placeholder="Developer"></td>
+           <td><input type="text" class="form-control" name="gpublisher" ngModel id="gpublisher" placeholder="Publisher"></td>
+           <td><input type="text" class="form-control" name="ggenres" ngModel id="ggenres" placeholder="Genres"></td>
+           <td> <button type="submit"  id="adds" class="button1" [disabled]="!gameForm.valid">ADD Game</button>  </td>
+           <td> <button type="button"  id="edits" class="button1" [disabled]="!gameForm.valid" (click)="editGame1(gameID.value ,gameForm.value)">EDIT Game</button>  </td>
+     </tr> </table>  </form>
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th>Game name</th>
+            <th>Game Series </th>
+            <th>Game Space</th>
+            <th>Game Developer</th>
+            <th>Publisher</th>
+            <th>Genres</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let game of games">
+              <td>{{game.gname}}</td>
+              <td>{{game.gseries}}</td>
+              <td>{{game.gspace}}</td>
+              <td>{{game.gdeveloper}}</td>
+              <td>{{game.gpublisher}}</td>
+              <td>{{game.ggenres}}</td>
+              <td><span class="btn btn-primary btn-xs" (click)="editGame(game.gname, game.gseries, game.gspace, game.gdeveloper,
+                 game.gpublisher,game.ggenres,game.gameID)"><span>Update</span></span>
+              <td><span class="btn btn-danger btn-xs" (click)="deleteGame(game.gameID)">
+                  <span class="glyphicon glyphicon-trash"></span>Delete</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
